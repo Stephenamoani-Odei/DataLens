@@ -12,8 +12,8 @@ interface ExtractedData {
   weight: string | null;
   unit: string | null;
   packaging_type: string | null;
-  country_of_origin: string | null;
-  promotional_messages: string | null;
+  country_origin: string | null;
+  marketing_messages: string | null;
 }
 
 interface ConfidenceScores {
@@ -25,8 +25,8 @@ interface ConfidenceScores {
   product_name: 'high' | 'low';
   weight_and_unit: 'high' | 'low';
   packaging_type: 'high' | 'low';
-  country_of_origin: 'high' | 'low';
-  promotional_messages: 'high' | 'low';
+  country_origin: 'high' | 'low';
+  marketing_messages: 'high' | 'low';
 }
 
 interface ExtractionResult {
@@ -81,8 +81,8 @@ export default function ResultsDisplay({ extractionResult, isProcessing }: Resul
       confidence: confidence_scores.weight_and_unit,
     },
     { label: 'Packaging Type', key: 'packaging_type', value: extracted_data.packaging_type, confidence: confidence_scores.packaging_type },
-    { label: 'Country of Origin', key: 'country_of_origin', value: extracted_data.country_of_origin, confidence: confidence_scores.country_of_origin },
-    { label: 'Promotional Messages', key: 'promotional_messages', value: extracted_data.promotional_messages, confidence: confidence_scores.promotional_messages },
+    { label: 'Country of Origin', key: 'country_origin', value: extracted_data.country_origin, confidence: confidence_scores.country_origin },
+    { label: 'Marketing Messages', key: 'marketing_messages', value: extracted_data.marketing_messages, confidence: confidence_scores.marketing_messages },
   ];
 
   const highConfidenceCount = Object.values(confidence_scores).filter((s) => s === 'high').length;
